@@ -1,6 +1,7 @@
 const cardJsSrc = 'http://127.0.0.1:5500/online/card.js';
 const styleSrc = 'http://127.0.0.1:5500/online/style.css';
 const logoSrc = 'http://127.0.0.1:5500/online/icons/irecharge.png';
+const loaderSrc = 'http://127.0.0.1:5500/online/icons/loader.gif';
 
 data = {
 	amount: null,
@@ -115,9 +116,11 @@ function init() {
 	payBlock.classList.add("show-payment");
 
 	cancelPayment.addEventListener("click", () => {
-		payOverlayBlock.classList.remove("show-payment");
 		payBlock.classList.remove("show-payment");
-		document.body.removeChild(payOverlayBlock);
+		swal("","Payment canceled!", "error").then(() => {
+			payOverlayBlock.classList.remove("show-payment");
+			document.body.removeChild(payOverlayBlock);
+		});
 	});
 }
 
@@ -125,6 +128,13 @@ function createHtml(data) {
 	payOverlayBlock = document.createElement('div');
 	payOverlayBlock.className = "overlay";
 
+	payOverlayBlock.classList.add("show-payment");
+	const loading = document.createElement('div');
+	loading.className = 'loader';
+	const loaderImg = document.createElement('img');
+	loaderImg.src = loaderSrc;
+	loading.appendChild(loaderImg);
+	payOverlayBlock.appendChild(loading);
 	payBlock = document.createElement('div');
 	payBlock.className = "payment";
 
@@ -210,9 +220,12 @@ function createHtml(data) {
 	centerDiv.appendChild(cancelbtn);
 
 	const cardScript = document.createElement('script');
-	
 	cardScript.setAttribute('src', cardJsSrc);
 	cardScript.type = "text/javascript"
+	
+	const alertScript = document.createElement('script');
+	alertScript.setAttribute('src', 'https://unpkg.com/sweetalert/dist/sweetalert.min.js');
+	alertScript.type = "text/javascript"
 
 	payBlock.appendChild(headTitle);
 	payBlock.appendChild(logoDiv);
@@ -225,6 +238,7 @@ function createHtml(data) {
 	payOverlayBlock.appendChild(payBlock);
 	// const body = document.getElementsByTagName('body');
 	payOverlayBlock.appendChild(cardScript);
+	payOverlayBlock.appendChild(alertScript);
 
 
 	var linK = document.createElement('link');

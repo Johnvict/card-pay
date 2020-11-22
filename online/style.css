@@ -18,7 +18,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .payment, .overlay {
@@ -31,6 +31,20 @@ body {
 
 .center {
   text-align: center;
+}
+
+.loader {
+  text-align: center;
+}
+
+.loader img {
+  width: 40px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .overlay-footer {
@@ -131,6 +145,7 @@ body {
   -webkit-transition: background 1s;
   transition: background 1s;
   margin-bottom: 10px;
+  height: 25px;
 }
 
 .payment #expiryDateInput, .payment #cvvInput {
@@ -138,6 +153,7 @@ body {
   margin: 3px;
   text-align: center;
   font-size: large;
+  height: 13px;
 }
 
 .payment .validationError {
@@ -149,7 +165,6 @@ body {
   outline: none;
   border: 2px solid gray;
   border-radius: 5px;
-  height: 25px;
   text-align: center;
 }
 
