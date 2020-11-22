@@ -117,7 +117,7 @@ function init() {
 
 	cancelPayment.addEventListener("click", () => {
 		payBlock.classList.remove("show-payment");
-		swal("","Payment canceled!", "error").then(() => {
+		swal("","Payment cancelled!", "error").then(() => {
 			payOverlayBlock.classList.remove("show-payment");
 			document.body.removeChild(payOverlayBlock);
 		});
