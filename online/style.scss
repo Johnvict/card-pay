@@ -1,0 +1,181 @@
+body {
+	margin: 0;
+	font-family: calibri, Roboto;
+	font-size: 24px;
+	color: #266073;
+    text-shadow: 1px 0 grey;
+}
+
+
+
+.hidden {
+	display: none;
+}
+
+.overlay {
+	opacity: 1;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,.65);
+}
+
+.payment, .overlay {
+	display: none;
+}
+
+.show-payment {
+	display: block;
+}
+
+.center {
+	text-align: center;
+}
+.overlay-footer {
+	bottom: 0;
+	top: 75%;
+    position: fixed;
+    left: 0;
+    right: 0;
+	text-align: center;
+	
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	p {
+		color: rgb(211, 201, 201);
+	}
+	a {
+		color: aliceblue;
+		text-decoration: none;
+	}
+}
+.payment {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 15%;
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
+	padding: 1em;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 2px 2px 12px 4px #2d2525a6;
+	h1 {
+		text-align: center;
+		font-size: 30px;
+		margin: 3px;
+	}
+	.logo {
+		text-align: center;
+		img {
+			width: 50px;
+			transition: 1s;
+			&:hover {
+				filter: grayscale(1);
+			}
+		}
+	}
+	h2, p {
+		margin: 0;
+	}
+	
+	p {
+		font-size: 14px;
+	}
+
+	.payment-details {
+		p {
+			margin: 0;
+		}
+		h5 {
+			margin: 0;
+			.amountText {
+				color: rgb(23, 189, 23);
+				font-size: 25px;
+			}
+			.payText {
+				font-weight: 400; font-size: 16px;
+			}
+		}
+		text-align: end;
+		 margin-bottom: 22px;
+		 
+	}
+
+	#cardNumberInput {
+		width: 65%;
+		font-size: large;
+		padding: 5px;
+		background: url(icons/card.png) no-repeat scroll 0px -7px;
+		padding-left: 55px;
+		transition: background 1s;
+		margin-bottom: 10px;
+	}
+
+	#expiryDateInput, #cvvInput {
+		width: 32%;
+		margin: 3px;
+		text-align: center;
+		font-size: large;
+	}
+
+	.validationError {
+		border-color: #ec3f3f !important;
+		color: #ec3f3f !important;
+	}
+
+	#cardNumberInput, #expiryDateInput, #cvvInput {
+		outline: none;
+		border: 2px solid gray;
+		border-radius: 5px;
+		height: 25px;
+		text-align: center;
+	}
+
+	#paybtn {
+		border: none;
+		outline: none;
+		padding: 1em 1.5em;
+		font-size: 1rem;
+		margin-top: 2em;
+		cursor: pointer;
+		background-color: rgb(23, 189, 23);
+		color: white;
+		font-weight: bold;
+		will-change: background;
+		border-radius: 7px;
+		transition: background 1s;
+		width: 100%;
+
+		&:hover {
+			background: rgb(19, 167, 19);
+		}
+		&:disabled {
+			background: rgb(108, 214, 108);		
+			cursor: not-allowed;
+		}
+	}
+	#cancelPayment {
+		margin-top: 20px;
+		border: 1px solid gray;
+		outline: none;
+		justify-self: center;
+		cursor: pointer;
+		background-color: lightgray;
+		color: grey;
+		font-weight: bold;
+		will-change: background;
+		border-radius: 7px;
+		transition: background 1s;
+		width: 70px;
+		height: 25px;
+		border-radius: 20px;
+	}
+}
+

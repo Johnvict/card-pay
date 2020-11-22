@@ -6,140 +6,38 @@
     <link rel="stylesheet" href="style.css" />
     <title>Payment</title>
   </head>
+
   <body>
     <div class="container">
       <h1>Some Client Side</h1>
-      <p>iRecharge payment system</p>
-      <button id="paymentButton">Make Payment</button>
+	  <p>iRecharge payment system</p>
+	  <form action="">
+		  <label for="email">Email</label><br>
+		  <input type="email" id="email" value="john@doe.com"> <br>
+		  <label for="amout">Amount</label><br>
+		  <input type="number" id="amount" value="12500"><br>
+		  <button id="paymentButton" type="submit">Make Payment</button>
+	  </form>
     </div>
-    <div class="overlay">
-
-		<div class="payment">
-		  <h1>Payment</h1>
-		<div class="logo">
-			<img src="https://devpitch.com.ng/irecharge/assets/img/irecharge.png" alt="">
-		</div>
-		  <div class="payment-details">
-			<p>john@doe.com</p>
-			<h5><small class="payText">Pay</small> <span class="amountText">N50,000</span></h5>
-		  </div>
-	
-		  <div class="center">
-			<input
-			type="tel"
-			id="cardNumberInput"
-			placeholder="1234-5678-9012-3456"
-			maxlength="19"
-			oninput="formatCardNumber(cardNumberInput.value)"
-			/>
-			<br />
-			<input
-			  type="tel"
-			  id="expiryDateInput"
-			  placeholder="mm/yy"
-			  maxlength="5"
-			  oninput="formatExpiryInput(expiryDateInput.value)"
-			/>
-			<input type="tel" id="cvvInput" placeholder="CVV: 123" maxlength="3" oninput="checkCvvInput(cvvInput.value)" />
-		  </div>
-		  <button id="paybtn">Pay</button>
-		  <div class="center">
-			<button id="cancelPayment">Cancel</button>
-		  </div>
-		  <!-- <div class="overlay-footer">
-			  <p>powered by</p>
-			  <a target="_blank" href="https://irecharge.com.ng">iRecharge</a>
-		  </div> -->
-		</div>
-
-		<br><br>
-	</div>
-
 
     <script>
-      let isExpiryCorrect, isCardValid, isCvvValid = false;
+		const paymentActivateButton = document.getElementById('paymentButton');
+		paymentActivateButton.addEventListener("click", (ev) => {
+			ev.preventDefault();
+			let data = {
+			amount: document.getElementById('amount').value,
+			email: document.getElementById('email').value,
+			apiKey: 'soMOSifnsinNINCWI92K',
+			reference: 'refff1928282',
+			meta: {
+				description: null,
+				datetime: null,
+			},
+			};
 
-      const paybtn = document.getElementById("paybtn");
-      paybtn.disabled = !isExpiryCorrect;
-      const payButton = document.querySelector("#paymentButton");
-      const overlay = document.querySelector(".overlay");
-      const paymentModal = document.querySelector(".payment");
-      const cancelPayment = document.querySelector("#cancelPayment");
-      const expiryDateInput = document.querySelector("#expiryDateInput");
-      const cardNumberInput = document.querySelector("#cardNumberInput");
-      const cardCvvInput = document.querySelector("#cvvInput");
-      const cardLogo = document.querySelector("#cardLogo");
-      const title = window.document.title;
-      const url = window.document.location.href;
-
-      payButton.addEventListener("click", () => {
-        overlay.classList.add("show-payment");
-        paymentModal.classList.add("show-payment");
-      });
-
-      cancelPayment.addEventListener("click", () => {
-        overlay.classList.remove("show-payment");
-        paymentModal.classList.remove("show-payment");
-      });
-
-      function formatCardNumber(cardInput) {
-        if (cardInput) {
-          for (let i = 1; i < cardInput.length; i++) {
-            cardInput = cardInput.replace("-", "");
-          }
-          if (cardInput.length >= 5) {
-			const cardtype = checkCardType(cardInput);
-			isCardValid = validator(cardInput);
-            if (cardtype) {
-				cardNumberInput.style.background = `url(icons/${cardtype}.png) no-repeat scroll 0px -7px`
-            } else {
-				cardNumberInput.style.background = `url(icons/card.png) no-repeat scroll 0px -7px`
-			}
-            if (isCardValid) {
-				cardNumberInput.classList.remove('validationError');
-			} else {
-				cardNumberInput.classList.add('validationError');
-			}
-			paybtn.disabled = (!isExpiryCorrect || !isCardValid || !isCvvValid);
-          }
-          cardInput = `_${cardInput}`;
-          let toks = "";
-          for (let i = 1; i < cardInput.length; i++) {
-            toks +=
-              i % 4 === 0 && i !== cardInput.length - 1
-                ? `${cardInput[i]}-`
-                : cardInput[i];
-          }
-
-          cardNumberInput.value = toks;
-        } else {
-          return null;
-        }
-      }
-      function formatExpiryInput(expiryInput) {
-        expiryInput = expiryInput.replace("/", "");
-        expiryPattern = /^((0[1-9])|(1[0-2]))[\/\.\-]*((2[0-9])|(3[0]))$/;
-        isExpiryCorrect = expiryPattern.test(expiryInput);
-        paybtn.disabled = (!isExpiryCorrect || !isCardValid || !isCvvValid);
-        if (isExpiryCorrect) {
-          expiryDateInput.classList.remove("validationError");
-        } else {
-          expiryDateInput.classList.add("validationError");
-        }
-        expiryDateInput.value =
-          expiryInput.substr(0, 2) + "/" + expiryInput.substr(2);
-	  }
-	  
-	  function checkCvvInput(cvvInput) {
-		isCvvValid = cvvInput.length == 3;
-		if (isCvvValid) {
-			cardCvvInput.classList.remove('validationError');
-		} else {
-			cardCvvInput.classList.add('validationError');
-		}
-		paybtn.disabled = (!isExpiryCorrect || !isCardValid || !isCvvValid);
-	  }
-    </script>
-    <script src="card.js"></script>
+			payiRecharge(data);
+		});
+	</script>
+    <script src="online/payment.js"></script>
   </body>
 </html>

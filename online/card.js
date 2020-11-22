@@ -1,16 +1,3 @@
-// function luhnCheck (num) {
-// 	let arr = (num + '')
-// 	  .split('')
-// 	  .reverse()
-// 	  .map(x => parseInt(x));
-// 	let lastDigit = arr.splice(0, 1)[0];
-// 	let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
-// 	sum += lastDigit;
-// 	return sum % 10 === 0;
-//   };
-//   console.log(luhnCheck('4485275742308327'));
-//   console.log(luhnCheck("5298209001733846"));
-  
 function checkCardType(cardNumber, checksum) {
 	const cardArray = cardNumber.toString().split("").map((e) => parseInt(e) )
 
@@ -44,7 +31,7 @@ function checkCardType(cardNumber, checksum) {
 }
 
 
-function validator(cardNumber){
+function validateCard(cardNumber){
 const cardArray = cardNumber.toString().split("").map((e) => parseInt(e) )
   validlen(cardArray);
   const splitArr =  arrSplit(cardArray)
@@ -77,3 +64,8 @@ function arrSplit(cardArray){
   }
   return {arr1, arr2}
 }
+
+// module.exports = {
+// 	checkCardType,
+// 	validateCard: validator
+// };

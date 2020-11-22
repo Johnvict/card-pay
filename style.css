@@ -1,9 +1,33 @@
 body {
   margin: 0;
   font-family: calibri, Roboto;
-  font-size: 24px;
+  font-size: 20px;
   color: #266073;
   text-shadow: 1px 0 grey;
+}
+
+input {
+  width: 90%;
+  font-size: large;
+  padding: 10px;
+  -webkit-transition: background 1s;
+  transition: background 1s;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 15px;
+}
+
+form {
+  outline: none;
+  border: 1px solid lightgray;
+  width: 400px;
+  padding: 5%;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
 }
 
 .container {
@@ -22,204 +46,13 @@ body {
   color: white;
   font-weight: bold;
   will-change: background;
-  border-radius: 7px;
+  border-radius: 5px;
   -webkit-transition: background 1s;
   transition: background 1s;
+  width: 96%;
 }
 
 .container button:hover {
-  background: #ff2a2a;
-}
-
-.hidden {
-  display: none;
-}
-
-.overlay {
-  opacity: 1;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
-}
-
-.payment, .overlay {
-  display: none;
-}
-
-.show-payment {
-  display: block;
-}
-
-.center {
-  text-align: center;
-}
-
-.overlay-footer {
-  bottom: 0;
-  top: 75%;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.overlay-footer p {
-  color: #d3c9c9;
-}
-
-.overlay-footer a {
-  color: aliceblue;
-  text-decoration: none;
-}
-
-.payment {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 15%;
-  margin: auto;
-  width: 400px;
-  height: 400px;
-  z-index: 1;
-  padding: 1em;
-  background: white;
-  border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 12px 4px #2d2525a6;
-          box-shadow: 2px 2px 12px 4px #2d2525a6;
-}
-
-.payment h1 {
-  text-align: center;
-  font-size: 30px;
-  margin: 3px;
-}
-
-.payment .logo {
-  text-align: center;
-}
-
-.payment .logo img {
-  width: 50px;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.payment .logo img:hover {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-.payment h2, .payment p {
-  margin: 0;
-}
-
-.payment p {
-  font-size: 14px;
-}
-
-.payment .payment-details {
-  text-align: end;
-  margin-bottom: 22px;
-}
-
-.payment .payment-details p {
-  margin: 0;
-}
-
-.payment .payment-details h5 {
-  margin: 0;
-}
-
-.payment .payment-details h5 .amountText {
-  color: #17bd17;
-  font-size: 25px;
-}
-
-.payment .payment-details h5 .payText {
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.payment #cardNumberInput {
-  width: 65%;
-  font-size: large;
-  padding: 5px;
-  background: url(icons/card.png) no-repeat scroll 0px -7px;
-  padding-left: 55px;
-  -webkit-transition: background 1s;
-  transition: background 1s;
-  margin-bottom: 10px;
-}
-
-.payment #expiryDateInput, .payment #cvvInput {
-  width: 32%;
-  margin: -2px;
-  text-align: center;
-  font-size: large;
-}
-
-.payment .validationError {
-  border-color: #ec3f3f !important;
-  color: #ec3f3f !important;
-}
-
-.payment #cardNumberInput, .payment #expiryDateInput, .payment #cvvInput {
-  outline: none;
-  border: 2px solid gray;
-  border-radius: 5px;
-  height: 25px;
-  text-align: center;
-}
-
-.payment #paybtn {
-  border: none;
-  outline: none;
-  padding: 1em 1.5em;
-  font-size: 1rem;
-  margin-top: 2em;
-  cursor: pointer;
-  background-color: #17bd17;
-  color: white;
-  font-weight: bold;
-  will-change: background;
-  border-radius: 7px;
-  -webkit-transition: background 1s;
-  transition: background 1s;
-  width: 100%;
-}
-
-.payment #paybtn:hover {
-  background: #13a713;
-}
-
-.payment #paybtn:disabled {
-  background: #6cd66c;
-  cursor: not-allowed;
-}
-
-.payment #cancelPayment {
-  margin-top: 20px;
-  border: 1px solid gray;
-  outline: none;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  cursor: pointer;
-  background-color: lightgray;
-  color: grey;
-  font-weight: bold;
-  will-change: background;
-  border-radius: 7px;
-  -webkit-transition: background 1s;
-  transition: background 1s;
-  width: 70px;
-  height: 25px;
-  border-radius: 20px;
+  background: #ad0404;
 }
 /*# sourceMappingURL=style.css.map */
