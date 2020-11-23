@@ -1,7 +1,10 @@
-const cardJsSrc = 'http://127.0.0.1:5500/online/card.js';
-const styleSrc = 'http://127.0.0.1:5500/online/style.css';
-const logoSrc = 'http://127.0.0.1:5500/online/icons/irecharge.png';
-const loaderSrc = 'http://127.0.0.1:5500/online/icons/loader.gif';
+// const cardJsSrc = 'http://127.0.0.1:5500/online/card.js';
+const cardJsSrc = 'https://devpitch.com.ng/payment/online/card.js';
+
+
+const styleSrc = 'https://devpitch.com.ng/payment/online/style.css';
+const logoSrc = 'https://devpitch.com.ng/payment/online/icons/irecharge.png';
+const loaderSrc = 'https://devpitch.com.ng/payment/online/icons/loader.gif';
 
 data = {
 	amount: null,
